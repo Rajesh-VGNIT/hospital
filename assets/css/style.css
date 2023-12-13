@@ -1111,6 +1111,7 @@ a.bg-danger:focus,a.bg-danger:hover,button.bg-danger:focus,button.bg-danger:hove
 }
 
 .btn-primary {
+    margin-top: 5px;
     background-color: var(--theme);
     border: 1px solid var(--theme)
 }
@@ -9574,7 +9575,16 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
         bottom: -9px!important
     }
 }
-
+@media(min-width: 320px) {
+    .input-group {
+        position: relative;
+        display: flex;
+        margin-top: 5px;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+    }
+}
 @media(min-width: 768px) {
     .avatar-xxl {
         width:8rem;
@@ -9830,7 +9840,7 @@ body[data-layout-mode=dark] .alertify .ajs-footer .ajs-buttons .ajs-button.ajs-o
     }
 
     .mobile_btn {
-        color: #18aefa!important;
+        /* color: #18aefa!important; */
         cursor: pointer;
         display: block;
         font-size: 24px;
