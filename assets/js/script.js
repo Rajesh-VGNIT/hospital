@@ -74,48 +74,82 @@ $(".add-table-items").on('click','.remove-btn',function(){$(this).closest('.add-
 
 
 // ===============index page number counting=================
-document.addEventListener("DOMContentLoaded", () => {
-    function counter(id, start, end, duration) {
-     let obj = document.getElementById(id),
-      current = start,
-      range = end - start,
-      increment = end > start ? 1 : -1,
-      step = Math.abs(Math.floor(duration / range)),
-      timer = setInterval(() => {
-       current += increment;
-       obj.textContent = current;
-       if (current == end) {
-        clearInterval(timer);
-       }
-      }, step);
-    }
-    counter("count1", 0, 20, 3000);
-    counter("count2", 100, 150, 2500);
-    counter("count3", 0, 30, 3000);
-    counter("count4", 0, 50, 3000);
-   });
 
-  //  ==============counter2==============
-   document.addEventListener("DOMContentLoaded", () => {
-    function counter(id, start, end, duration) {
-     let obj = document.getElementById(id),
-      current = start,
-      range = end - start,
-      increment = end > start ? 1 : -1,
-      step = Math.abs(Math.floor(duration / range)),
-      timer = setInterval(() => {
-       current += increment;
-       obj.textContent = current;
-       if (current == end) {
-        clearInterval(timer);
-       }
-      }, step);
-    }
-    counter("count5", 0, 10, 3000);
-    counter("count6", 100, 14, 2500);
-    counter("count7", 0, 17, 3000);
-    counter("count8", 0, 15, 3000);
-   });
+	$.fn.jQuerySimpleCounter = function( options ) {
+    var settings = $.extend({
+        start:  0,
+        end:    100,
+        easing: 'swing',
+        duration: 400,
+        complete: ''
+    }, options );
+
+    var thisElement = $(this);
+
+    $({count: settings.start}).animate({count: settings.end}, {
+    duration: settings.duration,
+    easing: settings.easing,
+    step: function() {
+      var mathCount = Math.ceil(this.count);
+      thisElement.text(mathCount);
+    },
+    complete: settings.complete
+  });
+};
+
+
+$('#count1').jQuerySimpleCounter({end: 20,duration: 3000});
+$('#count2').jQuerySimpleCounter({end: 150,duration: 3000});
+$('#count3').jQuerySimpleCounter({end: 30,duration: 2000});
+$('#count4').jQuerySimpleCounter({end: 50,duration: 2500});
+
+
+
+  /* AUTHOR LINK */
+   $('.about-me-img').hover(function(){
+          $('.authorWindowWrapper').stop().fadeIn('fast').find('p').addClass('trans');
+      }, function(){
+          $('.authorWindowWrapper').stop().fadeOut('fast').find('p').removeClass('trans');
+      });
+
+
+  // //  ==============counter2==============
+  $.fn.jQuerySimpleCounter = function( options ) {
+    var settings = $.extend({
+        start:  0,
+        end:    100,
+        easing: 'swing',
+        duration: 400,
+        complete: ''
+    }, options );
+
+    var thisElement = $(this);
+
+    $({count: settings.start}).animate({count: settings.end}, {
+    duration: settings.duration,
+    easing: settings.easing,
+    step: function() {
+      var mathCount = Math.ceil(this.count);
+      thisElement.text(mathCount);
+    },
+    complete: settings.complete
+  });
+};
+
+
+$('#count5').jQuerySimpleCounter({end: 10,duration: 3000});
+$('#count6').jQuerySimpleCounter({end: 14,duration: 3000});
+$('#count7').jQuerySimpleCounter({end: 17,duration: 2000});
+$('#count8').jQuerySimpleCounter({end: 15,duration: 2500});
+
+
+
+  /* AUTHOR LINK */
+   $('.about-me-img').hover(function(){
+          $('.authorWindowWrapper').stop().fadeIn('fast').find('p').addClass('trans');
+      }, function(){
+          $('.authorWindowWrapper').stop().fadeOut('fast').find('p').removeClass('trans');
+      });
 
 //    =====================image slider=======================
 let currentSlide = 0;
@@ -159,4 +193,33 @@ dots.forEach((dot, i) => {
     currentSlide = i
   })
 })
+
+
+
+
+// PreLoader
+jQuery.noConflict();
+(function($) {
+	$(window).on('load', function() { // makes sure the whole site is loaded
+		$('#status').fadeOut(); // will first fade out the loading animation
+		$('#preloader').delay(200).fadeOut('slow'); // will fade out the white DIV that covers the website.
+	});
+})(jQuery);
+
+// Scroll to Top
+jQuery.noConflict();
+(function($) {
+	$(window).scroll(function() {
+		if ($(this).scrollTop() >= 50) { // If page is scrolled more than 50px
+			$('#return-to-top').fadeIn(200); // Fade in the arrow
+		} else {
+			$('#return-to-top').fadeOut(200); // Else fade out the arrow
+		}
+	});
+	$('#return-to-top').click(function() { // When arrow is clicked
+		$('body,html').animate({
+			scrollTop: 0 // Scroll to top of body
+		}, 500);
+	});
+})(jQuery);
 
