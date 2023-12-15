@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    
-</head>
-<style>
+  </head>
+  <style>
     .flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
-  background-color: #2f9492;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      background-color: #2f9492;
     }
-
-  .text-center {
-    text-align: center;
-  }
+    ::-moz-selection { /* Code for Firefox */
+     color: #ffffff ;
+     background: var(--theme);
+    }
+  
+  ::selection {
+    color:#ffffff ;
+    background: var(--theme);
+   }
+  ::-webkit-selection {
+    background: var(--theme);
+    color: #ffffff;
+    text-shadow: none;
+   }
+    .text-center {
+      text-align: center;
+    }
     h1 {
       font-size: 8em;
-      border-bottom: 1px dashed white; 
+      border-bottom: 1px dashed white;
     }
-    
+
     button {
       border: 1px solid white;
       background: transparent;
@@ -35,28 +47,29 @@
       margin: 20px 0;
       font-weight: 500;
     }
-      button:hover {
-        background-color: #1f7a79;
-        color: #fff;
-        cursor: pointer;
-      }
-      .font-size20{
-        word-spacing: 5px;
-        font-weight: 500;
-      }
-
-</style>
-<body>
+    button:hover {
+      background-color: #1f7a79;
+      color: #fff;
+      cursor: pointer;
+    }
+    .font-size20 {
+      word-spacing: 5px;
+      font-weight: 500;
+    }
+  </style>
+  <body>
     <div class="flex-container">
-        <div class="text-center">
-          <h1>
-            <span  id="digit1">4</span>
-            <span  id="digit2">0</span>
-            <span  id="digit3">4</span>
-          </h1>
-          <h3 class="font-size20">Page Not Found...</h3>
-          <a href="/index.html"><button type="button" name="button">Return To Home</button></a>
-        </div>
+      <div class="text-center">
+        <h1>
+          <span id="digit1">4</span>
+          <span id="digit2">0</span>
+          <span id="digit3">4</span>
+        </h1>
+        <h3 class="font-size20">Page Not Found...</h3>
+        <a href="/index.html"
+          ><button type="button" name="button">Return To Home</button></a
+        >
       </div>
-</body>
+    </div>
+  </body>
 </html>

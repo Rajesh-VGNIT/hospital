@@ -12,7 +12,7 @@ html {
 }
 ::-moz-selection { /* Code for Firefox */
     color: #ffffff ;
-    background: #aa9166;
+    background: var(--theme);
   }
   
   ::selection {
