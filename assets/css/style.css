@@ -10,6 +10,20 @@ html {
     --white:#FFFFFF;
     --theme: #2f9492;
 }
+::-moz-selection { /* Code for Firefox */
+    color: #ffffff ;
+    background: #aa9166;
+  }
+  
+  ::selection {
+    color:#ffffff ;
+    background: var(--theme);
+  }
+  ::-webkit-selection {
+    background: var(--theme);
+    color: #ffffff;
+    text-shadow: none;
+  }
 body {
     background-color: #f7f7fa;
     color: #333;
@@ -79,9 +93,14 @@ input,input:focus,button,button:focus {
     outline: none
 }
 
-input[type=file] {
+/* input[type=file] {
     height: auto;
     min-height: calc(1.5em + .75rem + 2px)
+} */
+input[type=file] {
+    height: auto;
+    padding-top: 10px;
+    min-height: calc(1.6em + 1.1rem + 3px);
 }
 
 input[type=text],input[type=password] {
@@ -1683,7 +1702,8 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #18aefa
+    background-color: var(--theme
+    );
 }
 
 .select2-container--default .select2-selection--multiple {
@@ -2872,7 +2892,7 @@ footer p {
 
 .login-wrapper .loginbox .login-left {
     align-items: center;
-    background: var(--theme-hover);
+    /* background: var(--theme-hover); */
     flex-direction: column;
     justify-content: end;
     width: 400px;
